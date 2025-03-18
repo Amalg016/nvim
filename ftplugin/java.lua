@@ -1,6 +1,8 @@
 -- java setup
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local home = os.getenv 'HOME'
+local java_home = os.getenv 'JAVA_HOME'
+
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local jdtls = require("jdtls")
 
@@ -43,7 +45,6 @@ local config = {
     },
     settings = {
         java = {
-            home = "/opt/homebrew/opt/openjdk@11/bin/java",
             format = {
                 enabled = false, -- Disable formatting
             },
@@ -51,7 +52,7 @@ local config = {
                 runtimes = {
                     {
                         name = "JavaSE-11",
-                        path = "/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home/",
+                        path = java_home,
                     },
 
                 },

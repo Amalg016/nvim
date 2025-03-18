@@ -13,7 +13,7 @@ Open nvim ,  You will see a new window which will be installing all the plugins 
 
 ### For running java11, Additionally you have to do the following
 
-- Change the runtime and java path in the ftplugin/java.lua file accordingly
+- Make sure the JAVA_HOME is set properly in your environmental variables 
 
 - Download the jdtls from https://download.eclipse.org/jdtls/milestones/       -0.57 version
     - Extract the Downloaded one and Rename it as jdtls
