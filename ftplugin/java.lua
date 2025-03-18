@@ -29,8 +29,8 @@ local config = {
         --'--add-modules=java.base,java.logging,java.sql,java.xml,java.desktop,java.management,java.naming,java.rmi,java.scripting,java.security.jgss,java.security.sasl,java.sql.rowset,java.transaction.xa,java.xml.bind,java.xml.crypto,jdk.httpserver,jdk.unsupported,jdk.zipfs',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-        '-jar', home .. '/.cache/nvim/nvim_lsp/jdtls/plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar',
-        '-configuration', home .. '/.cache/nvim/nvim_lsp/jdtls/config_mac',
+        '-jar', home .. '/.local/nvim/jdtls/plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar',
+        '-configuration', home .. '/.local/nvim/jdtls/config_mac',
         '-data', vim.fn.expand('~/.cache/jdtls-workspace-') .. workspace_dir,
         -- See `data directory configuration` section in the README
     },
@@ -85,21 +85,6 @@ config['on_attach'] = function(client, bufnr)
     vim.lsp.inlay_hint.enable(true, { bufnr }) -- Enable inlay hints for the current buffer
 end
 
-function run_app(debug)
-    if debug then
-        vim.cmd('term' .. './gradlew startTomcat -Pdebug=true')
-    else
-        vim.cmd('term' .. './gradlew startTomcat')
-    end
-end
-
--- Debug
-vim.keymap.set("n", "<F10>", ':lua run_app(true)<CR>')
-
--- Run
-vim.keymap.set("n", "<F9>", ':lua run_app()<CR>')
-
-
 --  keymaps
 local keymap = vim.keymap
 
@@ -114,5 +99,5 @@ end)
 
 
 --TODO Download the jdtls from https://download.eclipse.org/jdtls/milestones/       -0.57 version
--- also download test debug adapter from https://mvnrepository.com/artifact/com.microsoft.java/com.microsoft.java.debug.plugin
+-- also download test debug adapter from https://mvnrepository.com/artifact/com.microsoft.java/com.microsoft.java.debug.plugin     - 0.46.0 can use
 jdtls.start_or_attach(config)
