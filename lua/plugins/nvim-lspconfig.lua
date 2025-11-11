@@ -52,46 +52,45 @@ return {
         end
 
         -- Call setup on eacah LSP server
-        require('mason-lspconfig').setup_handlers({
-            function(server_name)
-                lspconfig[server_name].setup({
-                    on_attach = lsp_attach,
-                    capabilities = lsp_capabilities,
-                    handlers = {
-                        -- Add borders to LSP popups
-                        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
-                        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help,
-                            { border = 'rounded' }),
-                    }
-                })
-            end
-        })
+        -- require('mason-lspconfig').setup_handlers({
+        --     function(server_name)
+        --         lspconfig[server_name].setup({
+        --             on_attach = lsp_attach,
+        --             capabilities = lsp_capabilities,
+        --             handlers = {
+        --                 -- Add borders to LSP popups
+        --                 ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
+        --                 ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help,
+        --                     { border = 'rounded' }),
+        --             }
+        --         })
+        --     end
+        -- })
         local util = require "lspconfig/util"
         -- Golang server
-        lspconfig.gopls.setup {
-            on_attach = lsp_attach,
-            capabilities = lsp_capabilities,
-            cmd = { "gopls" },
-            filetypes = { "go", "gomod", "gowork", "gotmpl" },
-            -- root_dir = vim.fs.dirname(vim.fs.find({ "go.work", "go.mod", "git" })),
-            root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-            settings = {
-                gopls = {
-                    completeUnimported = true,
-                    usePlaceholders = true,
-                    analyses = {
-                        unusedparams = true,
-                    },
-                },
-            },
-        }
-        lspconfig.zls.setup {
-            on_attach = lsp_attach,
-            capabilities = lsp_capabilities,
-            filetypes = { "zig" },
-            root_dir = util.root_pattern("build.zig", ".git"),
-
-        }
+        -- lspconfig.gopls.setup {
+        --     on_attach = lsp_attach,
+        --     capabilities = lsp_capabilities,
+        --     cmd = { "gopls" },
+        --     filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        --     -- root_dir = vim.fs.dirname(vim.fs.find({ "go.work", "go.mod", "git" })),
+        --     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+        --     settings = {
+        --         gopls = {
+        --             completeUnimported = true,
+        --             usePlaceholders = true,
+        --             analyses = {
+        --                 unusedparams = true,
+        --             },
+        --         },
+        --     },
+        -- }
+        -- lspconfig.zls.setup {
+        --     on_attach = lsp_attach,
+        --     capabilities = lsp_capabilities,
+        --     filetypes = { "zig" },
+        --     root_dir = util.root_pattern("build.zig", ".git"),
+        -- }
 
         -- vim.api.nvim_create_autocmd("FileType", {
         --     pattern = { "markdown" },
@@ -109,21 +108,6 @@ return {
 
         -- js, ts
         -- lspconfig.ts_ls.setup {}
-        -- lspconfig.eslint.setup {}
-
-        -- java handled in java.lua file
-
-        -- Lua LSP settings
-        lspconfig.lua_ls.setup {
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        -- Get the language server to recognize the `vim` global
-                        globals = { 'vim' },
-                    },
-                },
-            },
-        }
     end
 }
 
