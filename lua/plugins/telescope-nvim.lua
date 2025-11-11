@@ -15,6 +15,7 @@ return {
                 return vim.fn.executable 'make' == 1
             end,
         },
+        { 'nvim-telescope/telescope-ui-select.nvim' }
     },
     defaults = {
         vimgrep_arguments = {
@@ -39,6 +40,13 @@ return {
             layout_config = {
                 vertical = {
                     width = 0.75
+                }
+            }
+        },
+        extensions = {
+            ["ui-select"] = {
+                require("telescope.themes").get_dropdown {
+                    -- even more opts
                 }
             }
         }

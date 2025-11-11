@@ -33,7 +33,7 @@ vim.diagnostic.config {
     float = { border = "rounded" }, -- add border to diagnostic popups
 }
 
-vim.cmd [[colorscheme retrobox]]
+-- vim.cmd [[colorscheme retrobox]]
 
 vim.cmd [[hi NonText ctermbg=none]]
 vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
@@ -58,3 +58,4 @@ opt.mouse = "a"
 opt.foldlevel = 20
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
+require("telescope").load_extension("ui-select")
