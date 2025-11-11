@@ -108,7 +108,7 @@ return {
         -- })
 
         -- js, ts
-        lspconfig.ts_ls.setup {}
+        -- lspconfig.ts_ls.setup {}
         -- lspconfig.eslint.setup {}
 
         -- java handled in java.lua file
