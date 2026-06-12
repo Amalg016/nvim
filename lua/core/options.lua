@@ -23,7 +23,7 @@ opt.smartcase = true
 
 -- Cursor Line
 opt.cursorline = true
--- opt.guicursor = ""
+opt.guicursor = ""
 
 -- Appearance
 opt.termguicolors = true
@@ -33,7 +33,7 @@ vim.diagnostic.config {
     float = { border = "rounded" }, -- add border to diagnostic popups
 }
 
--- vim.cmd [[colorscheme retrobox]]
+vim.cmd [[colorscheme catppuccin]]
 
 vim.cmd [[hi NonText ctermbg=none]]
 vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
@@ -54,8 +54,17 @@ opt.iskeyword:append("-")
 -- Disable the mouse while in nvim
 opt.mouse = "a"
 
+
+-- lsp
+opt.autocomplete = true
+
+require("vim._core.ui2").enable({})
+
 -- Folding
 opt.foldlevel = 20
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
-require("telescope").load_extension("ui-select")
+
+
+
+
+

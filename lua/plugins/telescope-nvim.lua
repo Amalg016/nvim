@@ -43,12 +43,16 @@ return {
                 }
             }
         },
-        extensions = {
-            ["ui-select"] = {
-                require("telescope.themes").get_dropdown {
-                    -- even more opts
-                }
+        extensions = {}
+    },
+    config = function(_, opts)
+        opts.extensions["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+                -- even more opts
             }
         }
-    }
+        require("telescope").setup(opts)
+        vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
+        require("telescope").load_extension("ui-select")
+    end
 }

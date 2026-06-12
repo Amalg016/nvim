@@ -2,10 +2,12 @@
 return {
     -- https://github.com/nvim-treesitter/nvim-treesitter
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master',
     event = 'VeryLazy',
     dependencies = {
         -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
         'nvim-treesitter/nvim-treesitter-textobjects',
+    "nvim-treesitter/nvim-treesitter-context"
     },
     build = ':TSUpdate',
     opts = {
@@ -46,7 +48,11 @@ return {
         },
     },
     config = function(_, opts)
-        local configs = require("nvim-treesitter.configs")
-        configs.setup(opts)
+        local ok, configs = pcall(require, "nvim-treesitter.configs")
+        if ok then
+            configs.setup(opts)
+        else
+            vim.notify("nvim-treesitter.configs not found", vim.log.levels.WARN)
+        end
     end
 }
