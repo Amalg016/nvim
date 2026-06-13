@@ -12,7 +12,6 @@ keymap.set("n", "<leader>sv", "<C-w>v")        -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s")        -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=")        -- make split windows equal width
 keymap.set("n", "<leader>sx", ":close<CR>")    -- close split window
-keymap.set("n", "<C>w", ":q<CR>")              -- close split window
 
 local api = vim.api
 
@@ -80,14 +79,13 @@ keymap.set("n", "gdl", ":diffget //3<CR>")           -- Choose from right in dif
 keymap.set("n", "<leader>gg", "<cmd>Neogit<CR>")     -- open Neogit status
 
 -- LSP
-keymap.set('n', '<leader>gh', '<cmd>lua vim.lsp.buf.hover()<CR>')
 keymap.set('n', '<leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 keymap.set('n', '<leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 keymap.set('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 keymap.set('n', '<leader>gR', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
-keymap.set('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+keymap.set('n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>')
 keymap.set('n', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
 keymap.set('v', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
