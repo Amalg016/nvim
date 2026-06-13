@@ -5,6 +5,8 @@ vim.opt.pumheight = 10
 
 for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lsp", [[v:val =~ '\.lua$']])) do
     local lsp_name = (file:gsub("%.lua$", ""))
+    vim.lsp.inlay_hint.enable(true)
+    vim.lsp.inline_completion.enable()
     vim.lsp.enable(lsp_name)
 end
 
