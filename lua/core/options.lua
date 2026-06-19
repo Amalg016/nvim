@@ -12,6 +12,7 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
+opt.smartindent = true
 vim.bo.softtabstop = 4
 
 -- Line Wrapping
@@ -33,7 +34,7 @@ vim.diagnostic.config {
     float = { border = "rounded" }, -- add border to diagnostic popups
 }
 
-vim.cmd [[colorscheme catppuccin]]
+-- vim.cmd [[colorscheme catppuccin]]
 
 vim.cmd [[hi NonText ctermbg=none]]
 vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
@@ -55,8 +56,6 @@ opt.iskeyword:append("-")
 opt.mouse = "a"
 
 
--- lsp
-opt.autocomplete = true
 
 require("vim._core.ui2").enable({})
 
